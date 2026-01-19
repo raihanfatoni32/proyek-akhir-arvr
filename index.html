@@ -36,5 +36,25 @@
 
   </model-viewer>
 
+  <script>
+    const modelViewer = document.querySelector('#ar-scene');
+    const sound = document.querySelector('#click-sound');
+    const arButton = document.querySelector('#ar-button');
+
+    // Fungsi Putar Suara
+    function playClick() {
+      if(sound) {
+        sound.currentTime = 0; // Reset biar bisa spam click
+        sound.play().catch(e => console.log("Audio waiting for user interaction"));
+      }
+    }
+
+    // 1. Bunyi saat tombol AR ditekan
+    arButton.addEventListener('click', playClick);
+
+    // 2. Bunyi saat KURSI di-tap (Syarat Interaksi AR)
+    modelViewer.addEventListener('click', playClick);
+  </script>
+
 </body>
 </html>
