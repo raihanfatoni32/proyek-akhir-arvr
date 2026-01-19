@@ -41,29 +41,23 @@
     const sound = document.querySelector('#click-sound');
     const arButton = document.querySelector('#ar-button');
 
-    // Fungsi Mainkan Suara
     function playSound() {
       if(sound) {
-        sound.currentTime = 0; // Reset ke awal
+        sound.currentTime = 0;
         sound.play().catch(e => console.log("Audio siap (butuh interaksi user)"));
       }
     }
 
-    // 1. EVENT SAAT JARI MENYENTUH LAYAR (TEKAN)
-    // 'pointerdown' mendeteksi saat pertama kali disentuh/klik
     modelViewer.addEventListener('pointerdown', (event) => {
       playSound();
       console.log("Status: Ditekan (Click)");
     });
 
-    // 2. EVENT SAAT JARI DIANGKAT (LEPAS)
-    // 'pointerup' mendeteksi saat jari dilepas dari layar
     modelViewer.addEventListener('pointerup', (event) => {
       playSound();
       console.log("Status: Dilepas (Clack)");
     });
 
-    // Tambahan: Biar tombol Enter AR juga bunyi pas diklik
     arButton.addEventListener('click', playSound);
 
   </script>
