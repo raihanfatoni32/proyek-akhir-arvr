@@ -1,8 +1,7 @@
-/* RESET TAMPILAN */
 body { 
   margin: 0; padding: 0; width: 100vw; height: 100vh; 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: #FFFFFF; /* Wajib Putih */
+  background-color: #FFFFFF;
   overflow: hidden;
 }
 
@@ -12,58 +11,47 @@ model-viewer {
   background-color: white; 
 }
 
-/* TOMBOL ENTER AR (STYLE P5XR) */
 #ar-button {
   position: absolute;
-  
-  /* POSISI: AGAK NAIK KE ATAS (40%) */
   top: 40%; 
   left: 50%; 
   transform: translate(-50%, -50%);
   
   background-color: white;
-  color: #ED225D; /* Pink P5 */
-  
-  /* BORDER TEBAL & TEGAS */
+  color: #ED225D;
+
   border: 2.5px solid #ED225D; 
   border-radius: 4px; 
   
-  /* UKURAN LEBAR & GAGAH */
   padding: 12px 28px;
   min-width: 170px;
   
-  /* FONT TEBAL */
   font-size: 17px;
-  font-weight: 700; /* BOLD */
+  font-weight: 700;
   letter-spacing: 0.8px;
   
-  /* LAYOUT */
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 14px;
   
   cursor: pointer;
-  box-shadow: none; /* Flat Design */
+  box-shadow: none;
   z-index: 999;
   
-  /* Hapus highlight biru Android */
   -webkit-tap-highlight-color: transparent;
   outline: none;
 }
 
-/* EFEK KLIK */
 #ar-button:active {
   background-color: #fce4ec;
   transform: translate(-50%, -50%) scale(0.98);
 }
 
-/* IKON SVG */
 #ar-icon {
   width: 26px; 
   height: 26px;
   fill: #ED225D;
 }
 
-/* HILANGKAN ELEMENT LOADING GOOGLE */
 .slot-poster, #default-ar-button { display: none; }
