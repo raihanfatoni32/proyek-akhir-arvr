@@ -1,33 +1,24 @@
-let modelKursi, modelTanaman;
-let soundEffect;
-let activeModel;
-let placedObjects = [];
-
-function preload() {
-  modelKursi = loadModel('chair.obj', true);
-  modelTanaman = loadModel('plantSmall1.obj', true);
-  
-  soundFormats('mp3', 'ogg');
-  soundEffect = loadSound('lesungpipi.mp3'); 
-}
-
 function setup() {
-  createARCanvas();
-}
+  noCanvas();
+  
+  let consoleDiv = document.getElementById('p5-console');
+  
+  setTimeout(() => {
+    consoleDiv.innerHTML += "<br>> System Ready.";
+  }, 1000);
 
-function draw() {
-  ambientLight(255);
-  directionalLight(255, 255, 255, 0, 0, -1);
-  
-  specularMaterial(200);
-  shininess(50);
-  
-}
+  let modelViewer = document.querySelector('model-viewer');
+  let audio = document.getElementById('click-sound');
 
-function mousePressed() {
-  
-  if (soundEffect.isLoaded()) {
-    soundEffect.play();
-  }
-  
+  document.getElementById('ar-button').addEventListener('click', () => {
+    consoleDiv.innerHTML = "<span style='color:yellow'> > Requesting WebXR Session...</span>";
+  });
+
+  modelViewer.addEventListener('click', () => {
+    if(audio) {
+      audio.currentTime = 0;
+      audio.play();
+      consoleDiv.innerHTML = "> Interaction: Tap Detected.<br>> Playing SFX.";
+    }
+  });
 }
